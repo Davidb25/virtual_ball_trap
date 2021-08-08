@@ -1,0 +1,288 @@
+* {
+    margin: 0;
+    padding: 0;
+    /*empêche la sélection d'élément par l'utilisateur*/
+}
+
+
+.cursor {
+    width: 30px;
+    height: 30px;
+    cursor: none;
+    border: dashed 2px black;
+    border-radius: 50%;
+    position: absolute;
+    }
+
+.cursor::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: crimson;
+}
+
+.expand {
+    animation: Anim2 .4s;
+    background: crimson;
+    border: 1px solid crimson;
+}
+
+
+@keyframes Anim2 {
+    0%{
+        transform: scale(5);
+        opacity:60;
+    }
+    50%{
+        transform: scale(8);
+        opacity:60;
+        background: rgb(202, 125, 30);
+        border: 1px solid rgb(202, 125, 30);
+        opacity:20;
+    }
+    50%{
+        transform: scale(1);
+        opacity:0;
+
+    }
+
+}
+
+header {
+    height: 80px;
+
+}
+
+#title_game{
+    display: inline;
+    text-align: left;
+    font-weight: bold;
+    font-size:65px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 1px 1px 2px rgb(229, 243, 39), 0 0 1em white, 0 0 0.2em rgb(255, 255, 255);
+    margin-top: 20px;
+    margin-left: 80px;
+    margin-bottom: 20px;
+}
+
+
+
+.scoreboard {
+    display: inline;
+    text-align: left;
+    font-weight: bold;
+    font-size:65px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 160px;
+    margin-bottom: 20px;
+}
+
+
+#score {
+    color:red;
+    text-shadow: rgb(0, 0, 0) 1px 0 10px;
+}
+
+body {
+    overflow: hidden;
+    background-color:gray;
+    user-select: none;
+    cursor: none;
+    min-height: 100vh;
+}
+
+#canvas {
+    position: absolute;
+    top: 0px;
+    overflow: hidden;
+    margin-left: 2px;
+    height: 740px; 
+    width: 1500px;
+    /*border: 5px solid black;*/
+   
+}
+
+
+
+/*Création du style de l'assiette avec variable*/
+.assiette {
+    position: absolute;
+
+    animation: assietteAnim 8s;
+
+}
+
+
+@keyframes assietteAnim {
+    from {
+        transform: translate(0%, 0%);
+    }
+
+    to {
+        transform: translate(var(--trX), var(--trY));
+    }
+}
+
+#lanceur {
+    width:80px;
+    height: 80px;
+    position: absolute;
+    background: rgb(56, 54, 54);
+    bottom: 0px;
+    left: 0;
+    border: 5px solid rgb(56, 54, 54);
+}
+
+
+#depart_assiette {
+    text-align:center;
+    width:38px;
+    height: 38px;
+    top: 50%;
+    left: 50%;
+    transform: translate(50%, 50%);
+    border: 0px solid rgb(226, 87, 6);
+    border-radius: 50%;
+    background-color:rgb(226, 87, 6);
+
+
+
+}
+
+#btn {
+    font-size: 18px;
+    font-weight: bold;
+    color: brown;
+    width:200px;
+    height: 80px;
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform:translateX(-50%);
+    border: 5px solid white;
+}
+
+
+
+
+/* choix des thèmes d'arrières plan*/
+.theme_utilisateur {
+    margin-top: 120px;
+    position: fixed;
+    top: 0;
+    margin-left:5px;
+    z-index: 3;
+}
+
+.theme {
+    height: 60px;
+    width: 106px;
+    border: 2px solid blue;
+    cursor: pointer;
+    margin: 5px;
+}
+
+#vignette_cascade {
+    background: url('./img/arriere_plan/cascade_pixabay.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#vignette_verdure_montagne {
+    background: url('./img/arriere_plan/verdure_montagne_pixabay.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#vignette_petit_chalet {
+    background: url('./img/arriere_plan/petit_chalet_pixabay.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#vignette_verdure_nuages {
+    background: url('./img/arriere_plan/verdure_nuages.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#vignette_lac_de_montagne {
+    background: url('./img/arriere_plan/lac_de_montagne.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#vignette_balle_de_foin {
+    background: url('./img/arriere_plan/balles_de_foin_pixabay.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+
+.body_cascade_theme {
+    background: url('./img/arriere_plan/cascade_pixabay.jpg');
+    background-size:cover;
+    margin:0;
+    width:100%;
+    height:100%;
+    background-repeat:no-repeat;
+    min-height: 100vh;
+}
+
+.body_verdure_montagne_theme {
+    background: url('./img/arriere_plan/verdure_montagne_pixabay.jpg');
+    background-size:cover;
+    margin:0;
+    width:100%;
+    height:100%;
+    background-repeat:no-repeat;
+    min-height: 100vh;
+}
+
+.body_petit_chalet_theme {
+    background: url('./img/arriere_plan/petit_chalet_pixabay.jpg');
+    background-size:cover;
+    margin:0;
+    width:100%;
+    height:100%;
+    background-repeat:no-repeat;
+    min-height: 100vh;
+}
+
+.body_verdure_nuages {
+    background: url('./img/arriere_plan/verdure_nuages.jpg');
+    background-size:cover;
+    margin:0;
+    width:100%;
+    height:100%;
+    background-repeat:no-repeat;
+    min-height: 100vh;
+}
+
+.body_lac_de_montagne {
+    background: url('./img/arriere_plan/lac_de_montagne.jpg');
+    background-size:cover;
+    margin:0;
+    width:100%;
+    height:100%;
+    background-repeat:no-repeat;
+    min-height: 100vh;
+}
+
+.body_balle_de_foin {
+    background: url('./img/arriere_plan/balles_de_foin_pixabay.jpg');
+    background-size:cover;
+    margin:0;
+    width:100%;
+    height:100%;
+    background-repeat:no-repeat;
+    min-height: 100vh;
+}
